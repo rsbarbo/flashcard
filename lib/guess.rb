@@ -1,17 +1,15 @@
+require_relative "card"
+require_relative "deck"
+require_relative "round"
+
 class Guess
+
+attr_reader :response, :card
 
 def initialize (response,card)
 @card = card
 @response = response
 end
-
-    def card
-      @card
-    end
-
-    def response
-      @response
-    end
 
     def correct?
       @response == card.answer
