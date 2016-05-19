@@ -46,19 +46,19 @@ end
         100 / @guesses.count * @correct_answers
     end
 
-  def start
-      puts "Welcome! You're playing with #{@total_cards} cards."
-      deck.cards.each do |card|
-      puts "-------------------------------------------------"
-      puts "This card number #{first_card + 1} out of #{@total_cards}"
-      puts card.question
-      response = gets.chomp
-      record_guess(response)
-      puts @guesses[@current_guess].feedback
-      @current_guess +=1
-      end
-      p "***** GAME OVER *****"
-      p "You had #{number_correct} correct guesses out of 4 for a score of #{percent_correct}%."
-  end
+    def start
+        puts "Welcome! You're playing with #{@total_cards} cards."
+        deck.cards.each do |card|
+        puts "-------------------------------------------------"
+        puts "This card number #{first_card + 1} out of #{@total_cards}"
+        puts card.question
+        response = gets.chomp
+        record_guess(response)
+        puts @guesses[@current_guess].feedback
+        @current_guess +=1
+        end
+        p "***** GAME OVER !!!! *****"
+        p "You had #{number_correct} correct guesses out of 4 for a score of #{percent_correct}%."
+    end
 
 end

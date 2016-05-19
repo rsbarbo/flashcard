@@ -9,6 +9,7 @@ require_relative "../lib/cardgenerator"
 
 class CardGeneratorTest < Minitest::Test
 
+  #call the txt file, add to cards, make sure it is included in an array, and count
   def test_create_cards
       filename = "./lib/cards.txt"
       cards    = CardGenerator.new(filename).cards
