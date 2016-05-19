@@ -9,11 +9,11 @@ require_relative "../lib/cardgenerator"
 
 class CardGeneratorTest < Minitest::Test
 
-def test_create_cards
-  filename = "./lib/cards.txt"
-  cards = CardGenerator.new(filename).cards
-  assert_equal Array, cards.class
-  assert_equal 4, cards.count
-end
+  def test_create_cards
+      filename = "./lib/cards.txt"
+      cards    = CardGenerator.new(filename).cards
+      assert_equal Array, cards.class
+      assert_equal 4,     cards.count
+  end
 
 end

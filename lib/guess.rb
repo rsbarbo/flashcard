@@ -4,23 +4,25 @@ require_relative "round"
 
 class Guess
 
-attr_reader :response, :card, :feedback
+attr_reader :response,
+            :card,
+            :feedback
 
 def initialize (response,card)
-@card = card
-@response = response
+    @card     = card
+    @response = response
 end
 
     def correct?
-      @response == card.answer
+        @response == card.answer
     end
 
     def feedback
-      if @response == card.answer
-        "Correct"
-      else
-        "Wrong"
-      end
+        if @response == card.answer
+          "Correct"
+        else
+          "Wrong"
+        end
     end
 
 end

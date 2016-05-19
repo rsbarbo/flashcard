@@ -4,14 +4,15 @@ require_relative "round"
 
 class Deck
 
-  attr_reader :count, :cards
+attr_reader :count,
+            :cards
 
-  def initialize(cards)
+def initialize(cards)
     @cards = cards
-  end
+end
 
   def count
-    @cards.count
+      @cards.count
   end
 
 end
