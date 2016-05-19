@@ -12,8 +12,8 @@ class CardGeneratorTest < Minitest::Test
 def test_create_cards
   filename = "./lib/cards.txt"
   cards = CardGenerator.new(filename).cards
-  binding.pry
   assert_equal Array, cards.class
+  assert_equal 4, cards.count
 end
 
 end
