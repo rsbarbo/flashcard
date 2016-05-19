@@ -84,9 +84,10 @@ attr_reader :card_1,
         assert_equal "Wrong", round.guesses.last.feedback
     end
 
-    #Return whether the second answer is correct or not.
+    #Return number of correct answers based on previous guesses.
     def test_number_correct_2
         round.record_guess("Juneau")
+        round.record_guess("2")
         round.guesses.last.feedback
         assert_equal 1, round.number_correct
     end

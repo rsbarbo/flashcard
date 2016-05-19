@@ -14,7 +14,7 @@ class CardGeneratorTest < Minitest::Test
       filename = "./lib/cards.txt"
       cards    = CardGenerator.new(filename).cards
       assert_equal Array, cards.class
-      assert_equal 4,     cards.count
+      assert_equal 4, cards.count
   end
 
 end
