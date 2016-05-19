@@ -20,76 +20,82 @@ attr_reader :card_1,
       @round  = Round.new(deck)
   end
 
+    #Make sure deck is available for the round.
     def test_deck_in_a_round
         assert_equal (deck), round.deck
     end
 
+    #Make sure guesses is being stored in an array.
     def test_round_guesses
         assert_equal [], round.guesses
     end
 
+    #Return current card being called.
     def test_current_card
         assert_equal "What is the capital of Alaska?", round.current_card.question
     end
 
+    #Record the first guess.
     def test_record_guess
         assert_instance_of Guess, round.record_guess("Juneau")
     end
 
+    #Counts how many guesses were performed by the user.
     def test_guess_count
         assert_instance_of Guess, round.record_guess("Juneau")
-        assert_equal 1,           round.guesses.count
+        assert_equal 1, round.guesses.count
     end
 
+    #Returns first card result - whether right or wrong.
     def test_first_feedback
         assert_instance_of Guess, round.record_guess("Juneau")
-        assert_equal 1,           round.guesses.count
-        assert_equal "Correct",   round.guesses.first.feedback
+        assert_equal "Correct", round.guesses.first.feedback
     end
 
+    #Count number of correct answers (1).
     def test_number_correct_1
         assert_instance_of Guess, round.record_guess("Juneau")
-        assert_equal "Correct",   round.guesses.first.feedback
-        assert_equal 1,           round.number_correct
+        assert_equal 1, round.number_correct
     end
 
+    #Make sure it returns the second card (based on the guess recorded previously).
     def test_current_card_2
         round.record_guess("Juneau")
         assert_equal card_2, round.current_card
     end
 
-    def test_guess_record_2
+    #Record second guess (based on the guess recorded previously)
+    def test_record_guess_2
         round.record_guess("Juneau")
         assert_instance_of Guess, round.record_guess("2")
     end
 
-
+    #Return how many guesses were performed in the round.
     def test_guess_count_2
         round.record_guess("Juneau")
         round.record_guess("2")
         assert_equal 2, round.guesses.count
     end
 
-    def test_round_guesses_last_feedback
+    #Return feedback from last guess based on the initial iteration (#1-4)
+    def test_second_feedback
         round.record_guess("Juneau")
         round.record_guess("2")
-        round.guesses.count
         assert_equal "Wrong", round.guesses.last.feedback
     end
 
+    #Return whether the second answer is correct or not.
     def test_number_correct_2
         round.record_guess("Juneau")
         round.record_guess("2")
-        round.guesses.count
         round.guesses.last.feedback
         assert_equal 1, round.number_correct
     end
 
+    #Return the percentage of asnwers given correctly
     def test_percent_correct
         round.record_guess("Juneau")
         round.record_guess("2")
-        round.guesses.count
-        round.guesses.last.feedback
         round.number_correct
         assert_equal 50, round.percent_correct
     end

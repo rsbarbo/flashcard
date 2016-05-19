@@ -43,7 +43,7 @@ end
     end
 
     def percent_correct
-        100 / (@guesses.count * @correct_answers)
+        100 / @guesses.count * @correct_answers
     end
 
   def start

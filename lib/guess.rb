@@ -18,7 +18,7 @@ end
     end
 
     def feedback
-        if @response == card.answer
+     if @response == card.answer
           "Correct"
         else
           "Wrong"
